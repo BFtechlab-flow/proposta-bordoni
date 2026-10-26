@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Studio Bordoni · Proposta di nuovo sito</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#23402f;--forest-2:#2f5540;--stone:#ebe8e1;--stone-2:#dcd7cc;--slate:#3c4a52;--brass:#a8823a;--white:#fdfdfb;--muted:#5d6660}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  body{font-family:"Public Sans",system-ui,sans-serif;background:var(--white);color:#1e2622;line-height:1.6;font-size:17px}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:Newsreader,Georgia,serif;font-weight:400;line-height:1.1}
+  .draft{background:#1e2622;color:#e8e6df;font-size:14px;padding:9px 0}
+  .draft .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .draft a{color:#e2c27e}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;height:76px;gap:16px}
+  .brand{font-family:Newsreader;font-size:26px;text-decoration:none;color:var(--forest)}
+  nav{display:flex;gap:24px;font-size:15px}
+  nav a{text-decoration:none}
+  nav a:hover{text-decoration:underline;text-underline-offset:4px}
+  @media (max-width:760px){nav{display:none}}
+
+  .hero{padding:40px 0 72px}
+  .hero h1{font-size:clamp(42px,7vw,92px);color:var(--forest);max-width:13ch}
+  .hero .lead{font-size:20px;color:var(--muted);max-width:50ch;margin-top:22px}
+
+  .week{margin-top:48px;border:1px solid var(--stone-2);border-radius:18px;overflow:hidden;background:#fff}
+  .week header{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid var(--stone-2);flex-wrap:wrap;gap:8px}
+  .week header p{font-size:15px;color:var(--muted)}
+  .week header strong{color:var(--forest)}
+  .days{display:grid;grid-template-columns:repeat(7,1fr)}
+  .day{padding:16px 10px;text-align:center;border-right:1px solid var(--stone-2);font-size:14px}
+  .day:last-child{border-right:0}
+  .day .n{display:block;font-weight:600;margin-bottom:8px}
+  .day .loc{display:inline-block;padding:4px 10px;border-radius:999px;font-size:13px}
+  .cam{background:#dfeee4;color:var(--forest)}
+  .tro{background:#f2e7cf;color:#6e521a}
+  .off{color:#9aa19c}
+  .day.today{background:var(--stone)}
+  .day.today .n::after{content:" · oggi";color:var(--brass)}
+  @media (max-width:640px){.days{grid-template-columns:1fr}.day{display:flex;justify-content:space-between;align-items:center;border-right:0;border-bottom:1px solid var(--stone-2);text-align:left}.day .n{margin:0}}
+
+  .sedi{background:var(--forest);color:#eef2ee;padding:88px 0}
+  .sedi .grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#3a5e4a;border-radius:20px;overflow:hidden}
+  .sede{background:var(--forest);padding:36px 32px}
+  .sede h2{font-size:38px;margin-bottom:4px}
+  .sede .valle{color:#b9cdbf;margin-bottom:22px}
+  .sede dl{display:grid;grid-template-columns:110px 1fr;gap:8px 16px;font-size:16px}
+  .sede dt{color:#b9cdbf}
+  .sede a.btn{margin-top:26px}
+  .btn{display:inline-block;background:var(--brass);color:#fff;text-decoration:none;padding:12px 22px;border-radius:999px;font-weight:600}
+  .btn:hover{background:#94722f}
+  @media (max-width:760px){.sedi .grid{grid-template-columns:1fr}}
+
+  section.block{padding:96px 0}
+  .story{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px}
+  .story h2{font-size:clamp(32px,4.5vw,52px);color:var(--forest)}
+  .story blockquote{font-family:Newsreader;font-size:26px;color:var(--brass);margin-top:24px;font-style:italic}
+  .timeline{list-style:none;border-left:2px solid var(--stone-2);padding-left:28px}
+  .timeline li{position:relative;padding-bottom:34px}
+  .timeline li::before{content:"";position:absolute;left:-37px;top:8px;width:16px;height:16px;border-radius:50%;background:var(--white);border:2px solid var(--forest)}
+  .timeline .y{font-family:Newsreader;font-size:30px;color:var(--forest);display:block}
+  .timeline p{color:var(--muted);max-width:52ch}
+  @media (max-width:820px){.story{grid-template-columns:1fr;gap:36px}}
+
+  .team{background:var(--stone)}
+  .team h2{font-size:clamp(32px,4.5vw,52px);color:var(--forest);margin-bottom:40px}
+  .people{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px}
+  .person .ph{aspect-ratio:4/5;border-radius:16px;background:repeating-linear-gradient(45deg,#e1ddd3 0 12px,#d8d3c7 12px 24px);display:flex;align-items:flex-end;padding:14px;font-size:13px;color:var(--slate);margin-bottom:16px}
+  .person .ph span{background:#fff;padding:5px 10px;border-radius:999px}
+  .person h3{font-size:26px;color:var(--forest)}
+  .person p{font-size:15px;color:var(--muted);margin-top:6px}
+
+  .cure h2{font-size:clamp(32px,4.5vw,52px);color:var(--forest);margin-bottom:12px}
+  .cure .sub{color:var(--muted);margin-bottom:32px}
+  details{border-top:1px solid var(--stone-2);padding:20px 0}
+  details:last-of-type{border-bottom:1px solid var(--stone-2)}
+  summary{cursor:pointer;font-family:Newsreader;font-size:26px;color:var(--forest);list-style:none;display:flex;justify-content:space-between;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:"Public Sans";font-size:26px;color:var(--brass)}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--muted);max-width:68ch;margin-top:12px}
+
+  .partner{padding:56px 0;border-top:1px solid var(--stone-2);color:var(--muted)}
+  footer{background:#1e2622;color:#cfd4d0;padding:44px 0;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="draft" role="note"><div class="wrap">
+  <span>Bozza di proposta preparata da BF Tech Lab per lo Studio Bordoni. Non è il sito ufficiale.</span>
+  <a href="mailto:bftechlabselling@gmail.com">Scrivi a BF Tech Lab</a>
+</div></div>
+
+<header><div class="wrap">
+  <a class="brand" href="#">Studio Bordoni</a>
+  <nav aria-label="Principale"><a href="#sedi">Le sedi</a><a href="#storia">La storia</a><a href="#staff">Lo staff</a><a href="#cure">Le cure</a></nav>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <h1>Artigiani del sorriso, dal 1970.</h1>
+  <p class="lead">Medici chirurghi odontoiatri in Val Camonica e in Val Trompia. Seguiamo genitori, figli e nipoti con la stessa cura da tre generazioni.</p>
+
+  <div class="week" aria-label="Dove trovarci durante la settimana">
+    <header><p><strong>Dove siamo oggi?</strong> Le due sedi lavorano a giorni alterni.</p><p>Cellulare unico: <a href="tel:+393737200316">373 7200316</a></p></header>
+    <div class="days" id="days">
+      <div class="day" data-d="1"><span class="n">Lunedì</span><span class="loc cam">Piamborno</span></div>
+      <div class="day" data-d="2"><span class="n">Martedì</span><span class="loc cam">Piamborno</span></div>
+      <div class="day" data-d="3"><span class="n">Mercoledì</span><span class="loc tro">Ponte Zanano</span></div>
+      <div class="day" data-d="4"><span class="n">Giovedì</span><span class="loc cam">Piamborno</span></div>
+      <div class="day" data-d="5"><span class="n">Venerdì</span><span class="loc tro">Ponte Zanano</span></div>
+      <div class="day" data-d="6"><span class="n">Sabato</span><span class="loc off">Chiuso</span></div>
+      <div class="day" data-d="0"><span class="n">Domenica</span><span class="loc off">Chiuso</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sedi" id="sedi"><div class="wrap">
+  <div class="grid">
+    <article class="sede">
+      <h2>Piamborno</h2><p class="valle">Val Camonica</p>
+      <dl><dt>Indirizzo</dt><dd>Via Africano 24, 25050 Piamborno (BS)</dd>
+      <dt>Orari</dt><dd>Lun, Mar, Gio · 8–12 e 14–19</dd>
+      <dt>Telefono</dt><dd><a href="tel:+39036445163">0364 45163</a></dd></dl>
+      <a class="btn" href="tel:+39036445163">Chiama Piamborno</a>
+    </article>
+    <article class="sede">
+      <h2>Ponte Zanano</h2><p class="valle">Sarezzo, Val Trompia</p>
+      <dl><dt>Indirizzo</dt><dd>Via Francesco Petrarca 153, 25068 Sarezzo (BS)</dd>
+      <dt>Orari</dt><dd>Mer, Ven · 8–12 e 14–19</dd>
+      <dt>Telefono</dt><dd><a href="tel:+39030832024">030 832024</a></dd></dl>
+      <a class="btn" href="tel:+39030832024">Chiama Ponte Zanano</a>
+    </article>
+  </div>
+</div></section>
+
+<section class="block" id="storia"><div class="wrap story">
+  <div>
+    <h2>Uno studio di famiglia, cresciuto con i suoi pazienti.</h2>
+    <blockquote>«Un paziente dello studio non è uno dei tanti.»</blockquote>
+  </div>
+  <ol class="timeline">
+    <li><span class="y">1970</span><p>Il Dott. Lorenzo Bordoni apre il primo studio a Piamborno, in Val Camonica.</p></li>
+    <li><span class="y">Dieci anni dopo</span><p>Nasce la seconda sede a Ponte Zanano, Sarezzo, per i pazienti della Val Trompia.</p></li>
+    <li><span class="y">2013</span><p>Il figlio, Dott. Lodovico Bordoni, già medico chirurgo, si laurea in Odontoiatria all'Università Europea di Madrid e affianca il padre.</p></li>
+    <li><span class="y">Oggi</span><p>Genitori, figli e nipoti si affidano allo stesso staff, in un ambiente familiare che non rinuncia alla professionalità.</p></li>
+  </ol>
+</div></section>
+
+<section class="block team" id="staff"><div class="wrap">
+  <h2>Lo staff</h2>
+  <div class="people">
+    <div class="person"><div class="ph"><span>Qui: ritratto</span></div><h3>Dott. Lorenzo Bordoni</h3><p>Fondatore. Laurea in Medicina e Chirurgia a Pavia (1966), specializzazione in Odontoiatria e stomatologia a Parma (1971).</p></div>
+    <div class="person"><div class="ph"><span>Qui: ritratto</span></div><h3>Dott. Lodovico Bordoni</h3><p>Laurea in Medicina e Chirurgia alla Statale di Milano (2005) e in Odontoiatria a Madrid (2013). Iscritto anche all'Albo degli Odontoiatri di Valencia.</p></div>
+    <div class="person"><div class="ph"><span>Qui: ritratto</span></div><h3>Sig.ra Anna Maria</h3><p>Ausiliaria di clinica e responsabile della sala di sterilizzazione.</p></div>
+  </div>
+</div></section>
+
+<section class="block cure" id="cure"><div class="wrap">
+  <h2>Le cure</h2>
+  <p class="sub">Apri una voce per leggere di cosa si tratta.</p>
+  <details><summary>Odontoiatria generale</summary><p>Prevenzione, diagnosi e trattamento dei problemi di denti, gengive e ossa mascellari. Consigliamo un controllo ogni sei mesi.</p></details>
+  <details><summary>Igiene dentale</summary><p>Pulizia professionale del tartaro sotto le gengive, che lo spazzolino non può raggiungere, e consigli per l'igiene di tutti i giorni.</p></details>
+  <details><summary>Parodontologia</summary><p>Prevenzione e cura delle infezioni di gengive e tessuti che sostengono i denti, prima che ne compromettano la stabilità.</p></details>
+  <details><summary>Implantologia</summary><p>Viti in titanio che sostituiscono le radici dei denti mancanti. Di solito sono previste due fasi, con tempi diversi a seconda del caso.</p></details>
+  <details><summary>Endodonzia</summary><p>La terapia canalare che permette di salvare i denti danneggiati o infetti invece di estrarli.</p></details>
+  <details><summary>Protesi</summary><p>Protesi fisse o mobili, parziali o totali, funzionali, resistenti e dall'aspetto naturale.</p></details>
+  <details><summary>Terapia conservativa</summary><p>Ricostruzione dei denti danneggiati da carie o traumi con compositi estetici e molto resistenti.</p></details>
+  <details><summary>Sbiancamento</summary><p>Trattamento professionale per schiarire il colore dei denti, eseguito e seguito in studio. Il testo definitivo lo scriveremo insieme a voi.</p></details>
+  <details><summary>Pedodonzia</summary><p>Cure per i bambini: la prima visita è consigliata intorno all'anno di età, per impostare insieme ai genitori un piano di igiene.</p></details>
+  <details><summary>Estetica dentale</summary><p>Otturazioni del colore del dente, sbiancamento, riparazione dei traumi e correzione del sorriso.</p></details>
+</div></section>
+
+<section class="partner"><div class="wrap">
+  <p>Collaboriamo con <strong>Tecnodont</strong> di Ezio Cenedella, laboratorio odontotecnico fondato a Brescia nel 1974 che lavora con tecnologie CAD-CAM.</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>Studio Bordoni · Piamborno e Ponte Zanano (BS)</span>
+  <a href="mailto:info@studiobordoni.com">info@studiobordoni.com</a>
+</div></footer>
+
+<script>
+  const d=new Date().getDay();const el=document.querySelector('#days [data-d="'+d+'"]');if(el)el.classList.add('today');
+</script>
+</body>
+</html>
